@@ -5,6 +5,7 @@ import NotFound from '../Pages/404'
 
 import Header from './Header'
 import Test from './Testconpo'
+import Card from '../container/Card'
 
 const history = createBrowserHistory()
 
@@ -23,9 +24,10 @@ class Provider extends Component {
                 <Switch>
                     <Route path="/" exact component={Test} />
                     <Route path="/test" component={Test} />
-
                     <Route component={NotFound}/>
                 </Switch>
+                <Card/>
+
             </Router>
         );
     }

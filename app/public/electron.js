@@ -1,11 +1,27 @@
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+const ipcMain = electron.ipcMain
 
 const path = require('path');
 const isDev = require('electron-is-dev');
 
 let mainWindow;
+
+app.setAppUserModelId("myTask")
+
+ipcMain.on('notify', () => {
+  let myNotification = new Notification({
+      appName: "Electron",
+      title:'title',
+      body: 'Lorem Ipsum Dolor Sit Amet'
+    },
+    function(err, response) {
+      // Response is response from notification
+      console.log("responded...");
+    }
+  )
+})
 
 function createWindow() {
   mainWindow = new BrowserWindow({width: 900, height: 680});
